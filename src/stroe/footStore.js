@@ -11,8 +11,8 @@ class FootStore extends BaseStore {
     @observable name
 
     @computed
-    get getDataSouce() {
-        return this.dataSouce.slice()
+    get getAddName() {
+        return this.name + 100
     }
 
     @action
@@ -22,17 +22,22 @@ class FootStore extends BaseStore {
 
     @action
     requestDataSource = async () => {
-        // let relust = await fetch('http://', { method: 'POST', })
-        // runInAction(() => {
-        //     // 更新
+        let relust = await fetch('http://', { method: 'POST', })
+        runInAction(() => {
+            // 更新
 
-        // })
+        })
+        // this.loading = true
         // fetch('http://', { method: 'POST', }).then(() => {
         //     runInAction(() => {
         //         // 更新
-
+        //         this.loading = true
         //     })
         // })
+    }
+    @action
+    then = () => {
+        this.loading = false
     }
 
 }
