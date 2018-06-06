@@ -6,6 +6,7 @@
 `npm install  babel-preset-react-native-stage-0   babel-plugin-transform-decorators-legacy  -D`
 
 **备注：**<br>
+
 `babel-plugin-transform-decorators-legacy ：转义装饰器@ ` <br>
 `babel-preset-react-native-stage-0 ：转义ES7语法`<br>
 
@@ -30,7 +31,7 @@
     data={store.dataSouce.slice()}
 />
 ```
-**优化：**<br>
+- 优化：<br>
 如果你考虑优化你的项目，你可以设置一个计算属性：
 ```
  @computed
@@ -60,4 +61,6 @@ requestDataSource = async () => {
       })
 }
 ```
+
 你需要在`runInAction`里更新你的状态，因为fetch返回的是一个Promise对象，你.then或者await之后，`()=>`是一个新的箭头函数对象，不是mobx的`@action`，我们开启了严格模式后，所有的状态更新必须在`@action`里。
+`runInAction`是`action函数`的语法糖。
