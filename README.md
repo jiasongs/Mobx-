@@ -27,9 +27,9 @@
 
 - FlatList或者列表组件的data是数组，但是Mobx所观察的都是对象，所以使用的时候需要转换一下：<br>
 ```
-<FlatList
+ <FlatList
     data={store.dataSouce.slice()}
-/>
+ />
 ```
 - 优化：<br>
 如果你考虑优化你的项目，你可以设置一个计算属性：
